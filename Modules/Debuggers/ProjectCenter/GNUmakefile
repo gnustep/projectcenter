@@ -36,19 +36,34 @@ ProjectCenter_RESOURCE_FILES= \
 # Header files
 #
 ProjectCenter_HEADERS= \
-    PCDebugger.h \
-    PCDebugggerView.h \
-    PCDebuggerViewDelegateProtocol.h \
-    PipeDelegate.h
+PCDebugger.h \
+PCDebuggerViewDelegateProtocol.h \
+PCDebuggerView.h \
+PCGDBMIAsyncInfoRecord.h \
+PCGDBMIAsyncStatusRecord.h \
+PCGDBMIConsoleStreamRecord.h \
+PCGDBMIDebugStreamRecord.h \
+PCGDBMIParser.h \
+PCGDBMIPromptRecord.h \
+PCGDBMIRecord.h \
+PCGDBMITargetStreamRecord.h \
+PipeDelegate.h
 
 #
 # Class files
 #
 ProjectCenter_OBJC_FILES= \
-    PCDebugger.m \
-    PCDebuggerView.m \
-    PipeDelegate.m
-
+PCDebugger.m \
+PCDebuggerView.m \
+PCGDBMIAsyncInfoRecord.m \
+PCGDBMIAsyncStatusRecord.m \
+PCGDBMIConsoleStreamRecord.m \
+PCGDBMIDebugStreamRecord.m \
+PCGDBMIParser.m \
+PCGDBMIPromptRecord.m \
+PCGDBMIRecord.m \
+PCGDBMITargetStreamRecord.m \
+PipeDelegate.m
 
 #ADDITIONAL_OBJC_LIBS=
 

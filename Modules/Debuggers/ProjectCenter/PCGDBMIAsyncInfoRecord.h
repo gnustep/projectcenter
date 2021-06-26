@@ -25,7 +25,7 @@
 #ifndef _PCGDBMIAsyncInfoRecord_h_INCLUDE
 #define _PCGDBMIAsyncInfoRecord_h_INCLUDE
 
-#import <Foundation/PCGDBMIRecord.h>
+#import "PCGDBMIRecord.h"
 
 #if	defined(__cplusplus)
 extern "C" {

@@ -25,7 +25,7 @@
 #ifndef _PCGDBMIPromptRecord_h_INCLUDE
 #define _PCGDBMIPromptRecord_h_INCLUDE
 
-#import <Foundation/PCGDBMIRecord.h>
+#import "PCGDBMIRecord.h"
 
 #if	defined(__cplusplus)
 extern "C" {
