@@ -27,12 +27,21 @@
 
 #import <Foundation/NSObject.h>
 
+#import "PCGDBMIParserProtocol.h"
+
+@class NSScanner;
+@class NSMutableDictionary;
+
 #if	defined(__cplusplus)
 extern "C" {
 #endif
 
-@interface PCGDBMIRecord : NSObject
-
+@interface PCGDBMIRecord : NSObject <PCGDBMIParserProtocol>
+{
+  NSString *_string;
+  NSScanner *_scanner;
+  NSMutableDictionary *_dictionary;
+}
 @end
 
 #if	defined(__cplusplus)

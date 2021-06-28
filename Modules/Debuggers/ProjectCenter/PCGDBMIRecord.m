@@ -22,9 +22,49 @@
    Boston, MA 02110 USA.
 */
 
+#import <Foundation/NSString.h>
+#import <Foundation/NSScanner.h>
+
 #import "PCGDBMIRecord.h"
 
 @implementation PCGDBMIRecord
 
-@end
+- (instancetype) initWithString: (NSString *)string
+{
+  self = [super init];
+  if (self != nil)
+    {
+      [self setString: string];
+      _scanner = [[NSScanner alloc] initWithString: _string];
+    }
+  return self;
+}
 
+- (instancetype) init
+{
+  return [self initWithString: nil];
+}
+
+- (void) dealloc
+{
+  RELEASE(_string);
+  RELEASE(_scanner);
+  [super dealloc];
+}
+
+- (void) setString: (NSString *)string
+{
+  ASSIGN(_string, string);
+}
+
+- (BOOL) lookAheadExpecting: (NSString *)expectString
+{
+  return [_scanner scanString: expectString intoString: NULL];
+}
+
+- (PCGDBMIRecord *) parse
+{
+  return nil;
+}
+
+@end

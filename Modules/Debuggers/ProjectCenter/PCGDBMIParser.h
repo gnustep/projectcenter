@@ -25,18 +25,12 @@
 
 #import <Foundation/NSObject.h>
 
-@class NSString;
-@class PCGDBMIRecord;
+#import "PCGDBMIParserProtocol.h"
 
-@interface PCGDBMIParser : NSObject
+@interface PCGDBMIParser : NSObject <PCGDBMIParserProtocol>
 {
   NSString *_string;
 }
-
-- (instancetype) initWithString: (NSString *)string;
-- (void) setString: (NSString *)string;
-- (PCGDBMIRecord *) parse;
-
 @end
 
 #endif
