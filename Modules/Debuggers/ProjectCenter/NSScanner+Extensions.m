@@ -25,9 +25,27 @@
 
 #include <Foundation/Foundation.h>
 
-#include <GormObjCHeaderParser/NSScanner+Extensions.h>
+#include "NSScanner+Extensions.h"
 
 @implementation NSScanner (Extensions)
+- (BOOL) scanStringLiteralIntoString: (NSString **)buffer
+{
+  NSString *str1 = nil;
+  BOOL f = [self scanString: @"\"" intoString: &str1];
+
+  if (f == YES)
+    {
+      NSString *str2 = nil;
+      f = [self scanUpToString: @"\"" intoString: &str2];
+      if (f == YES)
+	{
+	  *buffer = [str1 stringByAppendingString: str2];
+	}
+    }
+
+  return YES;
+}
+
 - (void) scanUpToAndIncludingString: (NSString *)string 
 			 intoString: (NSString **)buffer
 {

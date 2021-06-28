@@ -33,7 +33,9 @@
 
 - (id) parse
 {
-  
+  NSString *result;
+  [_scanner scanStringLiteralIntoString: &result];
+  return result;
 }
 
 @end

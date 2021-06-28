@@ -31,8 +31,11 @@
 @class NSString, NSCharacterSet;
 
 @interface NSScanner (Extensions)
+- (BOOL) scanStringLiteralIntoString: (NSString **)buffer;
+
 - (void) scanUpToAndIncludingString: (NSString *)string 
                          intoString: (NSString **)buffer;
+
 - (void) scanUpToAndIncludingCharactersFromSet: (NSCharacterSet *)set 
                                     intoString: (NSString **)buffer;
 @end
