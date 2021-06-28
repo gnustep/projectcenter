@@ -1,8 +1,8 @@
-/* Implementation of class PCGDBMIAsyncInfoRecord
+/* Definition of class PCGDBMIKeyValueParser
    Copyright (C) 2021 Free Software Foundation, Inc.
    
    By: Gregory John Casamento
-   Date: 26-06-2021
+   Date: 28-06-2021
 
    This file is part of GNUstep.
    
@@ -22,21 +22,22 @@
    Boston, MA 02110 USA.
 */
 
-#import "PCGDBMIAsyncInfoRecord.h"
-#import "PCGDBMIKeyValueParser.h"
+#ifndef _PCGDBMIKeyValueParser_h_INCLUDE
+#define _PCGDBMIKeyValueParser_h_INCLUDE
 
-@implementation PCGDBMIAsyncInfoRecord
+#import <Foundation/NSObject.h>
 
-- (id) parse
-{
-  NSString *event;
+#if	defined(__cplusplus)
+extern "C" {
+#endif
 
-  [_scanner scanUpToString: @"," intoString: &event];
-  [_scanner scanString: @"," intoString: NULL];
-  
-  PCGDBMIKeyValueParser *p = [[PCGDBMIKeyValueParser alloc] initWithString: [_scanner remainingString]];
-  return [p parse];
-}
+@interface PCGDBMIKeyValueParser : NSObject
 
 @end
+
+#if	defined(__cplusplus)
+}
+#endif
+
+#endif	/* _PCGDBMIKeyValueParser_h_INCLUDE */
 

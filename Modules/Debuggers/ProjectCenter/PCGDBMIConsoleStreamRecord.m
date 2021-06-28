@@ -23,6 +23,7 @@
 */
 
 #import "PCGDBMIConsoleStreamRecord.h"
+#import "NSScanner+Extensions.h"
 
 @implementation PCGDBMIConsoleStreamRecord
 

@@ -76,4 +76,11 @@
 	}
     }
 }
+
+- (NSString *) remainingString
+{
+  NSUInteger loc = [self scanLocation];
+  NSString *s = [[self string] substringFromIndex: loc];
+  return s;
+}
 @end

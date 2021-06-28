@@ -43,6 +43,7 @@ PCGDBMIAsyncInfoRecord.h \
 PCGDBMIAsyncStatusRecord.h \
 PCGDBMIConsoleStreamRecord.h \
 PCGDBMIDebugStreamRecord.h \
+PCGDBMIKeyValueParser.h \
 PCGDBMIParser.h \
 PCGDBMIPromptRecord.h \
 PCGDBMIRecord.h \
@@ -60,6 +61,7 @@ PCGDBMIAsyncInfoRecord.m \
 PCGDBMIAsyncStatusRecord.m \
 PCGDBMIConsoleStreamRecord.m \
 PCGDBMIDebugStreamRecord.m \
+PCGDBMIKeyValueParser.m \
 PCGDBMIParser.m \
 PCGDBMIPromptRecord.m \
 PCGDBMIRecord.m \

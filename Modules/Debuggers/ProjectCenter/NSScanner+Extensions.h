@@ -38,6 +38,8 @@
 
 - (void) scanUpToAndIncludingCharactersFromSet: (NSCharacterSet *)set 
                                     intoString: (NSString **)buffer;
+
+- (NSString *) remainingString;
 @end
 
 #endif

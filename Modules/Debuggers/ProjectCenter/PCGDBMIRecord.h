@@ -44,7 +44,8 @@ extern "C" {
 }
 
 - (NSString *) cleanupString: (NSString *)aString;
-
+- (BOOL) lookAheadExpecting: (NSString *)expectString;
+  
 @end
 
 #if	defined(__cplusplus)
