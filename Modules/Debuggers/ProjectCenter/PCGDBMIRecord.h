@@ -42,6 +42,9 @@ extern "C" {
   NSScanner *_scanner;
   NSMutableDictionary *_dictionary;
 }
+
+- (NSString *) cleanupString: (NSString *)aString;
+
 @end
 
 #if	defined(__cplusplus)

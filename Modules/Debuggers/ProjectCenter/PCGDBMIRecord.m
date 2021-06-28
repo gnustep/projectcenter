@@ -34,7 +34,7 @@
   self = [super init];
   if (self != nil)
     {
-      [self setString: string];
+      [self setString: [self cleanupString: string]];
       _scanner = [[NSScanner alloc] initWithString: _string];
     }
   return self;
@@ -52,6 +52,13 @@
   [super dealloc];
 }
 
+- (NSString *) cleanupString: (NSString *)aString
+{
+  NSString *str = [aString stringByReplacingOccurrencesOfString: @"\\\""
+						     withString: @"\""];
+  return str;
+}
+
 - (void) setString: (NSString *)string
 {
   ASSIGN(_string, string);
@@ -62,9 +69,28 @@
   return [_scanner scanString: expectString intoString: NULL];
 }
 
-- (PCGDBMIRecord *) parse
+- (id) parse
 {
+  NSArray *classes = GSObjCAllSubclassesOfClass([self class]);
+  NSEnumerator *en = [classes objectEnumerator];
+  Class cls = nil;
+
+  while ((cls = [en nextObject]) != nil)
+    {
+      PCGDBMIRecord *parser = AUTORELEASE([[cls alloc]
+					    initWithString: _string]);
+      if ([parser canParse])
+	{
+	  return [parser parse];
+	}
+    }
+  
   return nil;
+}
+
+- (BOOL) canParse
+{
+  return NO;
 }
 
 @end

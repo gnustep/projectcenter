@@ -47,7 +47,8 @@ PCGDBMIParser.h \
 PCGDBMIPromptRecord.h \
 PCGDBMIRecord.h \
 PCGDBMITargetStreamRecord.h \
-PipeDelegate.h
+PipeDelegate.h \
+NSScanner+Extensions.h
 
 #
 # Class files
@@ -63,7 +64,8 @@ PCGDBMIParser.m \
 PCGDBMIPromptRecord.m \
 PCGDBMIRecord.m \
 PCGDBMITargetStreamRecord.m \
-PipeDelegate.m
+PipeDelegate.m \
+NSScanner+Extensions.m
 
 #ADDITIONAL_OBJC_LIBS=
 

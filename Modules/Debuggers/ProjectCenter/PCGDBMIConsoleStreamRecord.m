@@ -26,5 +26,15 @@
 
 @implementation PCGDBMIConsoleStreamRecord
 
+- (BOOL) canParse
+{
+  return [self lookAheadExpecting: @"~"];
+}
+
+- (id) parse
+{
+  
+}
+
 @end
 

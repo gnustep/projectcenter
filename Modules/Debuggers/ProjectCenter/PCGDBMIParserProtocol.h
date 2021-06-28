@@ -1,5 +1,5 @@
 /*
-**  PCGDBMIParser.m
+**  PCGDBMIParserProtocol.h
 **
 **  Copyright (c) 2020 Free Software Foundation
 **
@@ -20,44 +20,20 @@
 **  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 
-#import <Foundation/NSScanner.h>
-#import <Foundation/NSString.h>
+#ifndef _PCGDMIParserProtocol_h_INCLUDE
+#define _PCGDMIParserProtocol_h_INCLUDE
 
-#import "PCGDBMIParser.h"
-#import "PCGDBMIRecord.h"
+#import <Foundation/NSObject.h>
 
-@implementation PCGDBMIParser
+@class NSString;
 
-- (instancetype) initWithString: (NSString *)string
-{
-  self = [super init];
-  if (self != nil)
-    {
-      [self setString: string];
-    }
-  return self;
-}
+@protocol PCGDBMIParserProtocol
 
-- (instancetype) init
-{
-  return [self initWithString: nil];
-}
-
-- (void) setString: (NSString *)string
-{
-  ASSIGN(_string, string);
-}
-
-- (PCGDBMIRecord *) parse
-{
-  PCGDBMIRecord *record = [[PCGDBMIRecord alloc] initWithString: _string];
-  [record parse];
-  return record;
-}
-
-- (BOOL) canParse
-{
-  return YES;
-}
+- (instancetype) initWithString: (NSString *)string;
+- (void) setString: (NSString *)string;
+- (id) parse;
+- (BOOL) canParse;
 
 @end
+
+#endif
