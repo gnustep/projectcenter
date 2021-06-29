@@ -25,13 +25,13 @@
 #ifndef _PCGDBMIKeyValueParser_h_INCLUDE
 #define _PCGDBMIKeyValueParser_h_INCLUDE
 
-#import <Foundation/NSObject.h>
+#import "PCGDBMIRecord.h"
 
 #if	defined(__cplusplus)
 extern "C" {
 #endif
 
-@interface PCGDBMIKeyValueParser : NSObject
+@interface PCGDBMIKeyValueParser : PCGDBMIRecord
 
 @end
 

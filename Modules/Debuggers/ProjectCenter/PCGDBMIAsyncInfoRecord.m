@@ -22,6 +22,9 @@
    Boston, MA 02110 USA.
 */
 
+#import <Foundation/NSScanner.h>
+
+#import "NSScanner+Extensions.h"
 #import "PCGDBMIAsyncInfoRecord.h"
 #import "PCGDBMIKeyValueParser.h"
 

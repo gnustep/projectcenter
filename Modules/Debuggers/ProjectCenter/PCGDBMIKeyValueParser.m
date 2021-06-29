@@ -26,5 +26,25 @@
 
 @implementation PCGDBMIKeyValueParser
 
-@end
+- (id) parse
+{
+  NSString *key = nil;
+  
+  [_scanner scanUpToString: @"=" intoString: &key];
+  [_scanner scanString: @"=" intoString: NULL]; // consume equals to get past it...
 
+  BOOL flag = NO;
+
+  flag = [_scanner scanString: @"{" intoString: NULL];
+  if (flag == YES)
+    {
+      NSString *r = [_scanner remainingString];
+      NSString *s = [r substringToIndex: [r length] - 1];
+      NSArray *pairs = 
+    }
+  
+  PCGDBMIValueParser *p = 
+  
+}
+
+@end
