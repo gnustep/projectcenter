@@ -22,7 +22,17 @@
    Boston, MA 02110 USA.
 */
 
+
+#import <Foundation/NSString.h>
+#import <Foundation/NSArray.h>
+#import <Foundation/NSDictionary.h>
+#import <Foundation/NSScanner.h>
+
+#import "NSScanner+Extensions.h"
+#import "PCGDBMIArrayParser.h"
+#import "PCGDBMIDictionaryParser.h"
 #import "PCGDBMIKeyValueParser.h"
+#import "PCGDBMIRecord.h"
 
 @implementation PCGDBMIKeyValueParser
 
@@ -35,16 +45,43 @@
 
   BOOL flag = NO;
 
+  // Parse a dictionary...
   flag = [_scanner scanString: @"{" intoString: NULL];
   if (flag == YES)
     {
       NSString *r = [_scanner remainingString];
-      NSString *s = [r substringToIndex: [r length] - 1];
-      NSArray *pairs = 
+      NSString *s = [r substringToIndex: [r length] - 1]; // get rid of the closing brace
+      PCGDBMIRecord *p = [[PCGDBMIDictionaryParser alloc] initWithString: s];
+      NSDictionary *dict = [p parse];
+
+      return dict;
+    }
+
+  // Parse a string literal...  this is the base case of this recursive parser...
+  flag = [_scanner scanString: @"\"" intoString: NULL];
+  if (flag == YES)
+    {
+      NSUInteger loc = [_scanner scanLocation];
+      NSString *s = nil;
+      
+      [_scanner setScanLocation: loc - 1]; // reset to previous character...
+      [_scanner scanStringLiteralIntoString: &s];
+      return s;
     }
   
-  PCGDBMIValueParser *p = 
+  // Parse an array...
+  flag = [_scanner scanString: @"[" intoString: NULL];
+  if (flag == YES)
+    {
+      NSString *r = [_scanner remainingString];
+      NSString *s = [r substringToIndex: [r length] - 1];
+      PCGDBMIRecord *p = [[PCGDBMIArrayParser alloc] initWithString: s];
+      NSArray *a = [p parse];
+
+      return a;
+    }
   
+  return nil;
 }
 
 @end

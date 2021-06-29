@@ -39,10 +39,12 @@ ProjectCenter_HEADERS= \
 PCDebugger.h \
 PCDebuggerViewDelegateProtocol.h \
 PCDebuggerView.h \
+PCGDBMIArrayParser.h \
 PCGDBMIAsyncInfoRecord.h \
 PCGDBMIAsyncStatusRecord.h \
 PCGDBMIConsoleStreamRecord.h \
 PCGDBMIDebugStreamRecord.h \
+PCGDBMIDictionaryParser.h \
 PCGDBMIKeyValueParser.h \
 PCGDBMIParser.h \
 PCGDBMIPromptRecord.h \
@@ -57,10 +59,12 @@ NSScanner+Extensions.h
 ProjectCenter_OBJC_FILES= \
 PCDebugger.m \
 PCDebuggerView.m \
+PCGDBMIArrayParser.m \
 PCGDBMIAsyncInfoRecord.m \
 PCGDBMIAsyncStatusRecord.m \
 PCGDBMIConsoleStreamRecord.m \
 PCGDBMIDebugStreamRecord.m \
+PCGDBMIDictionaryParser.m \
 PCGDBMIKeyValueParser.m \
 PCGDBMIParser.m \
 PCGDBMIPromptRecord.m \
