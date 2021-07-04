@@ -51,7 +51,7 @@
     {
       NSString *r = [_scanner remainingString];
       NSString *s = [r substringToIndex: [r length] - 1]; // get rid of the closing brace
-      PCGDBMIRecord *p = [[PCGDBMIDictionaryParser alloc] initWithString: s];
+      PCGDBMIRecord *p = [[PCGDBMIKeyValueParser alloc] initWithString: s];
       NSDictionary *dict = [p parse];
 
       return dict;
@@ -79,6 +79,18 @@
       NSArray *a = [p parse];
 
       return a;
+    }
+
+  // Get the next thing...
+  flag = [_scanner scanString: @"," intoString: NULL];
+  if (flag == YES)
+    {
+      NSString *r = [_scanner remainingString];
+      NSString *s = [r substringToIndex: [r length] - 1]; // get rid of the closing brace
+      PCGDBMIRecord *p = [[PCGDBMIKeyValueParser alloc] initWithString: s];
+      NSDictionary *dict = [p parse];
+
+      return dict;
     }
   
   return nil;

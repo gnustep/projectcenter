@@ -26,5 +26,10 @@
 
 @implementation PCGDBMIDictionaryParser
 
+- (id) parse
+{
+  return nil;
+}
+
 @end
 

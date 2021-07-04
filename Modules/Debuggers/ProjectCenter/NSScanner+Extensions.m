@@ -39,7 +39,8 @@
       f = [self scanUpToString: @"\"" intoString: &str2];
       if (f == YES)
 	{
-	  *buffer = [str1 stringByAppendingString: str2];
+	  *buffer = str2; // [str1 stringByAppendingString: str2];
+	  [self scanString: @"\"" intoString: NULL];
 	}
     }
 
